@@ -16,16 +16,9 @@
 */
 
 import Foundation
-
-//step-edge-start
 import AEPEdge
-//step-edge-end
 
-public struct MobileSDKCommerceSchema
-//step-edge-start
-: XDMSchema
-//step-edge-end
-{
+public struct CommerceSchema : XDMSchema {
 	public let schemaVersion = "1.0"
 	public let schemaIdentifier = ""
 	public let datasetIdentifier = ""
@@ -49,7 +42,7 @@ public struct MobileSDKCommerceSchema
 	}	
 }
 
-extension MobileSDKCommerceSchema {
+extension CommerceSchema {
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 		if let unwrapped = commerce { try container.encode(unwrapped, forKey: .commerce) }

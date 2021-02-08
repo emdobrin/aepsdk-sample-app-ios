@@ -28,7 +28,7 @@ struct EdgeView: View {
     @State private var reviewText: String = ""
     
     /// Email address as string,  used as the product reviewer identifier
-    @State private var reviewerEmail: String = ""
+    @State private var reviewerEmail: String = "demo@example.com"
     
     /// Product rating as integer from 1 to 5
     @State private var reviewRating: Int = 5
@@ -45,7 +45,7 @@ struct EdgeView: View {
     private let PRODUCT_REVIEW_DATASET_ID = ""
     
     // set this property to your org as shown in your custom product reviews schema
-    private let TENANT_ID = ""
+    private let TENANT_ID = "_acopprod3"
     
     var body: some View {
         ScrollView {
@@ -177,7 +177,7 @@ struct EdgeView: View {
         }
     }
     
-    /// Creates and sends an add to cart commerce event to the Adobe Experience Edge.
+    /// Creates and sends an add to cart commerce event to the Adobe Experience Edge Network.
     func sendAddToCartXDMEvent() {
         print("Sending XDM commerce cart add event")
         // Get the selected ProductItem from the picker
@@ -192,7 +192,6 @@ struct EdgeView: View {
         product1.currencyCode = productItem.currencyCode
         
         let productListItems: [ProductListItemsItem] = [product1]
-        
         var productAdd = ProductListAdds()
         productAdd.value = 1
 
@@ -201,24 +200,20 @@ struct EdgeView: View {
         commerce.productListAdds = productAdd
         
         // Compose the XDM Schema object and set the event name
-        var xdmData = MobileSDKCommerceSchema()
+        var xdmData = CommerceSchema()
         xdmData.eventType = "commerce.productListAdds"
         xdmData.commerce = commerce
         xdmData.productListItems = productListItems
 
         // Create an Experience Event with the built schema and send it using the AEP Edge extension
-
-        //step-edge-start
         let event = ExperienceEvent(xdm: xdmData)
         Edge.sendEvent(experienceEvent: event)
-        //step-edge-end
         
         self.showAddToCartMessage = true
     }
     
-    /// Creates and sends a cart purchase event to the Adobe Experience Edge.
+    /// Creates and sends a cart purchase event to the Adobe Experience Edge Network.
     func sendPurchaseXDMEvent() {
-        print("Sending XDM commerce purchase event")
         // Get the selected ProductItem from the picker
         let productItem = products[productIndex]
         
@@ -231,25 +226,17 @@ struct EdgeView: View {
         product1.currencyCode = productItem.currencyCode
         
         let purchasedItems: [ProductListItemsItem] = [product1]
-        
-        var orderTotal: Double = 0
-        for item in purchasedItems {
-            if let price = item.priceTotal {
-                orderTotal += price
-            }
-        }
+        let orderTotal: Double = computeOrderTotal(purchasedItems: purchasedItems)
         /// Create PaymentItem which details the method of payment
         var paymentsItem = PaymentsItem()
         paymentsItem.paymentAmount = orderTotal
         paymentsItem.paymentType = "Credit card"
         
-        /// Set the Order information
+        /// Set the Order information and  create Purchases action
         var order = Order()
         order.priceTotal = orderTotal
         order.payments = [paymentsItem]
         order.currencyCode = "USD"
-
-        /// Create Purchases action
         var purchases = Purchases()
         purchases.value = 1
 
@@ -259,48 +246,38 @@ struct EdgeView: View {
         commerce.purchases = purchases
         
         // Compose the XDM Schema object and set the event name
-        var xdmData = MobileSDKCommerceSchema()
+        var xdmData = CommerceSchema()
         xdmData.eventType = "commerce.purchases"
         xdmData.commerce = commerce
         xdmData.productListItems = purchasedItems
 
         // Create an Experience Event with the built schema and send it using the Platform extension
-
-        //step-edge-start
         let event = ExperienceEvent(xdm: xdmData)
         Edge.sendEvent(experienceEvent: event)
-        //step-edge-end
-        
-        self.showPurchaseMessage = true
     }
     
-    /// Build a review event using a standard Dictionary datatype and send to the Adobe Experience Edge.
-    /// Remember to tell Edge where the data should land by overriding the dataset ID
+    func computeOrderTotal(purchasedItems: [ProductListItemsItem]) -> Double {
+        var orderTotal: Double = 0
+        for item in purchasedItems {
+            if let price = item.priceTotal {
+                orderTotal += price
+            }
+        }
+        
+        return orderTotal
+    }
+    
+    /// Build a review event using a standard Dictionary datatype and send to the Adobe Experience Edge Network.
     func sendProductReviewXDMEvent() {
-        print("Sending XDM product review event")
         var xdmData : [String: Any] = [:]
-
-        // 1. Add Email to the IdentityMap.
-        // Note: this app does not implement a logging system, so authenticatedState ambiguous is used
-        // in this case. The other authenticatedState values are: authenticated, loggedOut
-        xdmData["identityMap"] = ["Email": [["id": reviewerEmail,
-                                             "authenticatedState": "ambiguous"]]]
-
-        // 2. Add product review details in the custom mixin
-        // Note: set the TENANT_ID as specified in the Product Reviews Schema in Adobe Experience Platform
         xdmData[TENANT_ID] = ["productSku": products[productIndex].sku,
                               "rating": reviewRating,
                               "reviewText": reviewText,
                               "reviewerId": reviewerEmail]
-        
-        // 3. Send the XDM data using the Edge extension, by specifying Product Reviews Dataset identifiers as
-        // shown in Adobe Experience Platform
-        // Note: the Dataset identifier specified at Event level overrises the Experience Event Dataset specified in the
-        // Edge configuration in Adobe Launch
         xdmData["eventType"] = "product.review"
-        let experienceEvent = ExperienceEvent(xdm: xdmData, datasetIdentifier: PRODUCT_REVIEW_DATASET_ID)
-        Edge.sendEvent(experienceEvent: experienceEvent)
         
+        let experienceEvent = ExperienceEvent(xdm: xdmData)
+        Edge.sendEvent(experienceEvent: experienceEvent)
         self.showProductReviewMessage = true
     }
     

@@ -31,7 +31,7 @@
 		D4E2FDC9252554E6001FE22D /* ProductViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FDA5252554E6001FE22D /* ProductViews.swift */; };
 		D4E2FDCD252554E6001FE22D /* CartAbandons.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FDA9252554E6001FE22D /* CartAbandons.swift */; };
 		D4E2FDCE252554E6001FE22D /* Commerce.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FDAA252554E6001FE22D /* Commerce.swift */; };
-		D4E2FDD0252554E6001FE22D /* MobileSDKCommerceSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FDAC252554E6001FE22D /* MobileSDKCommerceSchema.swift */; };
+		D4E2FDD0252554E6001FE22D /* CommerceSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FDAC252554E6001FE22D /* CommerceSchema.swift */; };
 		D4E2FDD3252554E6001FE22D /* ProductListAdds.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FDAF252554E6001FE22D /* ProductListAdds.swift */; };
 		D4E2FDD4252554E6001FE22D /* AuthenticatedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FDB0252554E6001FE22D /* AuthenticatedState.swift */; };
 		D4E2FDD5252554E6001FE22D /* ProductListViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E2FDB1252554E6001FE22D /* ProductListViews.swift */; };
@@ -67,7 +67,7 @@
 		D4E2FDA5252554E6001FE22D /* ProductViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductViews.swift; path = xdmlib/ProductViews.swift; sourceTree = "<group>"; };
 		D4E2FDA9252554E6001FE22D /* CartAbandons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartAbandons.swift; path = xdmlib/CartAbandons.swift; sourceTree = "<group>"; };
 		D4E2FDAA252554E6001FE22D /* Commerce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Commerce.swift; path = xdmlib/Commerce.swift; sourceTree = "<group>"; };
-		D4E2FDAC252554E6001FE22D /* MobileSDKCommerceSchema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MobileSDKCommerceSchema.swift; path = xdmlib/MobileSDKCommerceSchema.swift; sourceTree = "<group>"; };
+		D4E2FDAC252554E6001FE22D /* CommerceSchema.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommerceSchema.swift; path = xdmlib/CommerceSchema.swift; sourceTree = "<group>"; };
 		D4E2FDAF252554E6001FE22D /* ProductListAdds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductListAdds.swift; path = xdmlib/ProductListAdds.swift; sourceTree = "<group>"; };
 		D4E2FDB0252554E6001FE22D /* AuthenticatedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AuthenticatedState.swift; path = xdmlib/AuthenticatedState.swift; sourceTree = "<group>"; };
 		D4E2FDB1252554E6001FE22D /* ProductListViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductListViews.swift; path = xdmlib/ProductListViews.swift; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 				D4E2FD98252554E6001FE22D /* IdentityMap.swift */,
 				D4E2FD8F252554E6001FE22D /* InStorePurchase.swift */,
 				D4E2FD90252554E6001FE22D /* Items.swift */,
-				D4E2FDAC252554E6001FE22D /* MobileSDKCommerceSchema.swift */,
+				D4E2FDAC252554E6001FE22D /* CommerceSchema.swift */,
 				D4E2FD96252554E6001FE22D /* Order.swift */,
 				D4E2FDA3252554E6001FE22D /* PaymentsItem.swift */,
 				D4E2FDAF252554E6001FE22D /* ProductListAdds.swift */,
@@ -296,7 +296,7 @@
 				D4E2FDD4252554E6001FE22D /* AuthenticatedState.swift in Sources */,
 				D4E2FDBA252554E6001FE22D /* Order.swift in Sources */,
 				D4E2FDD3252554E6001FE22D /* ProductListAdds.swift in Sources */,
-				D4E2FDD0252554E6001FE22D /* MobileSDKCommerceSchema.swift in Sources */,
+				D4E2FDD0252554E6001FE22D /* CommerceSchema.swift in Sources */,
 				D4E2FDC1252554E6001FE22D /* ProductListRemovals.swift in Sources */,
 				D42BE5C32524569C00782C3C /* EdgeViewController.swift in Sources */,
 				7876121124DC601B001CABB5 /* AssuranceViewController.swift in Sources */,

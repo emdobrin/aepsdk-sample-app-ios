@@ -68,7 +68,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ACPCore:
-    :commit: 9db676f0a42fc19ceba06d56e032c0d13119b031
+    :commit: 748779dd93ae14a9b7241c93fe9fd190abb816a5
     :git: https://github.com/adobe/aepsdk-compatibility-ios.git
   AEPAnalyticsEdge:
     :git: https://github.com/adobe/aepsdk-analyticsedge-ios
@@ -92,4 +92,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 6b1f55eb351b1bc39768b5c3694255f8b23aea88
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
