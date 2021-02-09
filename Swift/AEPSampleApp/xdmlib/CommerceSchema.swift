@@ -26,11 +26,11 @@ public struct CommerceSchema : XDMSchema {
 	public init() {}
 
 	public var commerce: Commerce?
-	public var eventMergeId: String?
-	public var eventType: String?
-	public var identityMap: IdentityMap?
 	public var productListItems: Array<ProductListItemsItem?>?
+    public var eventType: String?
+    public var identityMap: IdentityMap?
 	public var timestamp: Date?
+    public var eventMergeId: String?
 
 	enum CodingKeys: String, CodingKey {
 		case commerce = "commerce"
