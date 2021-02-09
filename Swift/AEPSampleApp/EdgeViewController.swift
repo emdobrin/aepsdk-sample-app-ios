@@ -254,17 +254,6 @@ struct EdgeView: View {
         Edge.sendEvent(experienceEvent: ExperienceEvent(xdm: xdmData))
     }
     
-    func computeOrderTotal(purchasedItems: [ProductListItemsItem]) -> Double {
-        var orderTotal: Double = 0
-        for item in purchasedItems {
-            if let price = item.priceTotal {
-                orderTotal += price
-            }
-        }
-        
-        return orderTotal
-    }
-    
     /// Build a review event using a standard Dictionary datatype and send to the Adobe Experience Edge Network.
     func sendProductReviewXDMEvent() {
         var xdmData : [String: Any] = [:]
@@ -276,6 +265,17 @@ struct EdgeView: View {
         
         Edge.sendEvent(experienceEvent: ExperienceEvent(xdm: xdmData))
         self.showProductReviewMessage = true
+    }
+    
+    func computeOrderTotal(purchasedItems: [ProductListItemsItem]) -> Double {
+        var orderTotal: Double = 0
+        for item in purchasedItems {
+            if let price = item.priceTotal {
+                orderTotal += price
+            }
+        }
+        
+        return orderTotal
     }
     
 }
