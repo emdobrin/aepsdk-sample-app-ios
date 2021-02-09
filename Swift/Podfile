@@ -1,12 +1,9 @@
 # coding: utf-8
-source 'https://github.com/CocoaPods/Specs.git’
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'
-
 use_frameworks!
-target 'YourTargetApp' do
+target 'AEPSampleApp' do
   pod 'AEPCore'
-  pod 'AEPLifecycle'
   pod 'AEPIdentity'
-  pod 'AEPSignal'
-  pod 'AEPRulesEngine'
+  pod 'AEPEdge'
 end

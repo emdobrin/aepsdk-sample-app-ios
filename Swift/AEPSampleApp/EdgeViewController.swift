@@ -192,10 +192,10 @@ struct EdgeView: View {
         product1.currencyCode = productItem.currencyCode
         
         let productListItems: [ProductListItemsItem] = [product1]
-        var productAdd = ProductListAdds()
-        productAdd.value = 1
 
         /// Create Commerce object and add ProductListAdds details
+        var productAdd = ProductListAdds()
+        productAdd.value = 1
         var commerce = Commerce()
         commerce.productListAdds = productAdd
         
@@ -206,8 +206,7 @@ struct EdgeView: View {
         xdmData.productListItems = productListItems
 
         // Create an Experience Event with the built schema and send it using the AEP Edge extension
-        let event = ExperienceEvent(xdm: xdmData)
-        Edge.sendEvent(experienceEvent: event)
+        Edge.sendEvent(experienceEvent: ExperienceEvent(xdm: xdmData))
         
         self.showAddToCartMessage = true
     }
@@ -252,8 +251,7 @@ struct EdgeView: View {
         xdmData.productListItems = purchasedItems
 
         // Create an Experience Event with the built schema and send it using the Platform extension
-        let event = ExperienceEvent(xdm: xdmData)
-        Edge.sendEvent(experienceEvent: event)
+        Edge.sendEvent(experienceEvent: ExperienceEvent(xdm: xdmData))
     }
     
     func computeOrderTotal(purchasedItems: [ProductListItemsItem]) -> Double {
@@ -276,8 +274,7 @@ struct EdgeView: View {
                               "reviewerId": reviewerEmail]
         xdmData["eventType"] = "product.review"
         
-        let experienceEvent = ExperienceEvent(xdm: xdmData)
-        Edge.sendEvent(experienceEvent: experienceEvent)
+        Edge.sendEvent(experienceEvent: ExperienceEvent(xdm: xdmData))
         self.showProductReviewMessage = true
     }
     

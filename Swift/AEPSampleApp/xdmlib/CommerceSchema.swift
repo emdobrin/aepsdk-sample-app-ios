@@ -20,7 +20,7 @@ import AEPEdge
 
 public struct CommerceSchema : XDMSchema {
 	public let schemaVersion = "1.0"
-	public let schemaIdentifier = ""
+	public let schemaIdentifier = "https://ns.adobe.com/acopprod3/schemas/5406b39b3e5e1c9d6f8f97211e2fafb27d7ea1bcdf692177"
 	public let datasetIdentifier = ""
 	
 	public init() {}

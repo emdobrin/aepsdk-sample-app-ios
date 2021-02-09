@@ -21,9 +21,7 @@ class MainTabBarController: UITabBarController {
         let edgeVC = EdgeViewController(rootView: EdgeView())
         edgeVC.tabBarItem = UITabBarItem(title: "Edge", image: nil, selectedImage: nil)
 
-        let assuranceVC = AssuranceViewController(rootView: AssuranceView())
-        assuranceVC.tabBarItem = UITabBarItem(title: "Assurance", image: nil, selectedImage: nil)
-        viewControllers = [edgeVC, coreVC, assuranceVC]
+        viewControllers = [edgeVC, coreVC]
     }
 }
 

@@ -12,11 +12,6 @@ import UIKit
 import AEPCore
 // step-init-end
 
-
-// step-assurance-start
-import AEPAssurance
-// step-assurance-end
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -63,10 +58,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        // step-assurance-start
-        guard let urlContexts = URLContexts.first else { return }
-        AEPAssurance.startSession(urlContexts.url)
-        // step-assurance-end
     }
 }
 

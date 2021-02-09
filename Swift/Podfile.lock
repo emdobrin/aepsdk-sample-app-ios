@@ -1,20 +1,4 @@
 PODS:
-  - ACPCore (2.9.9):
-    - AEPCore
-    - AEPIdentity
-    - AEPLifecycle
-    - AEPRulesEngine
-    - AEPServices
-    - AEPSignal
-  - AEPAnalyticsEdge (1.0.0-beta.2):
-    - AEPCore
-    - AEPEdge
-    - AEPServices
-  - AEPAssurance (1.1.0):
-    - ACPCore (>= 2.9.0)
-    - AEPAssurance/xcframeworks (= 1.1.0)
-  - AEPAssurance/xcframeworks (1.1.0):
-    - ACPCore (>= 2.9.0)
   - AEPCore (3.0.0):
     - AEPRulesEngine (= 1.0.0)
     - AEPServices (= 3.0.0)
@@ -22,74 +6,29 @@ PODS:
     - AEPCore
   - AEPIdentity (3.0.0):
     - AEPCore (= 3.0.0)
-  - AEPLifecycle (3.0.0):
-    - AEPCore (= 3.0.0)
   - AEPRulesEngine (1.0.0)
-  - AEPSampleExtensionSwift (0.0.1):
-    - AEPCore
   - AEPServices (3.0.0)
-  - AEPSignal (3.0.0):
-    - AEPCore (= 3.0.0)
 
 DEPENDENCIES:
-  - ACPCore (from `https://github.com/adobe/aepsdk-compatibility-ios.git`, branch `main`)
-  - AEPAnalyticsEdge (from `https://github.com/adobe/aepsdk-analyticsedge-ios`, tag `1.0.0-beta.2`)
-  - AEPAssurance
   - AEPCore
   - AEPEdge
   - AEPIdentity
-  - AEPLifecycle
-  - AEPRulesEngine
-  - AEPSampleExtensionSwift (from `https://github.com/adobe/aepsdk-sample-extension-ios.git`, branch `main`)
-  - AEPServices
-  - AEPSignal
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - AEPAssurance
     - AEPCore
     - AEPEdge
     - AEPIdentity
-    - AEPLifecycle
     - AEPRulesEngine
     - AEPServices
-    - AEPSignal
-
-EXTERNAL SOURCES:
-  ACPCore:
-    :branch: main
-    :git: https://github.com/adobe/aepsdk-compatibility-ios.git
-  AEPAnalyticsEdge:
-    :git: https://github.com/adobe/aepsdk-analyticsedge-ios
-    :tag: 1.0.0-beta.2
-  AEPSampleExtensionSwift:
-    :branch: main
-    :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
-
-CHECKOUT OPTIONS:
-  ACPCore:
-    :commit: 748779dd93ae14a9b7241c93fe9fd190abb816a5
-    :git: https://github.com/adobe/aepsdk-compatibility-ios.git
-  AEPAnalyticsEdge:
-    :git: https://github.com/adobe/aepsdk-analyticsedge-ios
-    :tag: 1.0.0-beta.2
-  AEPSampleExtensionSwift:
-    :commit: a2092b20f2b1d9a513d1112c77852fa7dea3f50f
-    :git: https://github.com/adobe/aepsdk-sample-extension-ios.git
 
 SPEC CHECKSUMS:
-  ACPCore: 67e4b855bf16cfb6a63024a4ddb73d15c0fd30e5
-  AEPAnalyticsEdge: 141c2d0433723a404c774ab12f1e7de1ef3c6c2c
-  AEPAssurance: c9c21b7e57bf993db210766631db2ef3732d4fa4
   AEPCore: 9ced1f1fddcbfd61517461e548e36aee740bf7c8
   AEPEdge: 90ccd6aa9901a79be123ddee03e038f0d1837508
   AEPIdentity: 79c57508bbabc8c2cf7f90e2baed15b03f4e97e6
-  AEPLifecycle: ed9b2fca314eb91da83766986bad8cb914555499
   AEPRulesEngine: 8bbc694fce6900cd33b2496c7d4b33ee2eeffc46
-  AEPSampleExtensionSwift: ca5f81b588e6cc07f3d7eb99fa9f283e6a42240b
   AEPServices: 21ea64149483fdfbd5f88f546b9f5ad7d4987400
-  AEPSignal: b4ac5c8e8c68e8902739426d70c01ed3ce229ac9
 
-PODFILE CHECKSUM: 6b1f55eb351b1bc39768b5c3694255f8b23aea88
+PODFILE CHECKSUM: 02c0e60230ead9b377531d77f3076a4251a067ae
 
 COCOAPODS: 1.10.1
